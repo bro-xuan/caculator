@@ -49,8 +49,6 @@ operators.forEach((operator)=>{
     });
 });
 
-
-
 function operate(a,b,operatorItem) {
     if (operatorItem==='+') return addition(parseFloat(a),parseFloat(b));
     if (operatorItem==='-') return subtraction(parseFloat(a),parseFloat(b));
@@ -64,7 +62,8 @@ equal.addEventListener("click",()=>{
     updateDisplay();
     console.log('=');
     console.log(displayValue);
-
+    a=displayValue;
+    b='';
 })
 
 returnClickValue();
