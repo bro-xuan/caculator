@@ -8,6 +8,9 @@ function multiple(a,b){
     return a*b;
 }
 function divide(a,b){
+    if (b === 0) {
+        return "Nice try, but you can't divide by zero!";
+    }
     return a/b;
 }
 
@@ -53,6 +56,9 @@ operators.forEach((operator)=>{
             } 
             operatorItem = operator.textContent;
             console.log(operatorItem);
+        } else {
+            displayValue = "Please enter a number first!";
+            updateDisplay();
         }
     });
 });
@@ -74,6 +80,16 @@ equal.addEventListener("click",()=>{
     a=result;
     b='';
     operatorItem=null;
+})
+
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", ()=>{
+    displayValue='0';
+    operatorItem=null;
+    a='';
+    b='';
+    result = null;
+    updateDisplay();
 })
 
 returnClickValue();

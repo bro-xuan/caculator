@@ -1,4 +1,25 @@
-.digits{
+.container {
     display: flex;
     flex-wrap: wrap;
+    width: 300px;
+}
+
+.digits {
+    width: 100px;
+    height: 100px;
+}
+
+.operator {
+    width: 100px;
+    height: 100px;
+}
+
+#equal {
+    width: 100px;
+    height: 100px;
+}
+
+#clear {
+    width: 100px;
+    height: 100px;
 }
