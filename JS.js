@@ -15,6 +15,7 @@ let displayValue='';
 let operatorItem=null;
 let a='';
 let b='';
+let result = null;
 
 function returnClickValue() {
     const buttons = document.querySelectorAll(".digits");
@@ -23,11 +24,11 @@ function returnClickValue() {
              if (operatorItem===null) {
                 a+=button.textContent;
                 displayValue=a;
-                console.log(a);
+                console.log("a:",a);
              } else {
                 b+=button.textContent;
                 displayValue=b;  
-                console.log(b); 
+                console.log("b:",b); 
             }
             updateDisplay();
         })
@@ -43,6 +44,13 @@ const operators = document.querySelectorAll(".operator");
 operators.forEach((operator)=>{
     operator.addEventListener("click",()=>{
         if (a!==''){
+            if (b!=='') {
+                a=String(operate(a,b,operatorItem));
+                displayValue=a;
+                result=a;
+                b='';
+                updateDisplay();
+            } 
             operatorItem = operator.textContent;
             console.log(operatorItem);
         }
@@ -62,8 +70,10 @@ equal.addEventListener("click",()=>{
     updateDisplay();
     console.log('=');
     console.log(displayValue);
-    a=displayValue;
+    result=displayValue;
+    a=result;
     b='';
+    operatorItem=null;
 })
 
 returnClickValue();
